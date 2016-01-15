@@ -1,0 +1,50 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE generatorConfiguration
+        PUBLIC "-//mybatis.org//DTD MyBatis Generator Configuration 1.0//EN"
+        "http://mybatis.org/dtd/mybatis-generator-config_1_0.dtd">
+
+<generatorConfiguration>
+    <classPathEntry
+            location="D:\jtds-1.3.1.jar"/>
+    <context id="my" targetRuntime="MyBatis3">
+        <commentGenerator>
+            <property name="suppressDate" value="false"/>
+            <property name="suppressAllComments" value="true"/>
+        </commentGenerator>
+
+        <jdbcConnection driverClass="net.sourceforge.jtds.jdbc.Driver"
+                        connectionURL="jdbc:jtds:sqlserver://10.0.0.202:1433/EF2KWeb" userId="sa"
+                        password=""/>
+
+        <javaModelGenerator targetPackage="com.ccolor.mybatis.bean"
+                            targetProject="CMS">
+            <property name="enableSubPackages" value="false"/>
+            <property name="trimStrings" value="true"/>
+        </javaModelGenerator>
+
+        <sqlMapGenerator targetPackage="com.ccolor.mybatis.mapper"
+                         targetProject="CMS/src/main/resources" >
+            <property name="enableSubPackages" value="false"/>
+        </sqlMapGenerator>
+
+        <javaClientGenerator targetPackage="com.ccolor.mybatis.mapper"
+                             targetProject="CMS/src/main/java" type="XMLMAPPER">
+            <property name="enableSubPackages" value="false"/>
+        </javaClientGenerator>
+
+
+        <!--<table tableName="T_FEE_AGTBILL" domainObjectName="FeeAgentBill"
+               enableCountByExample="false" enableUpdateByExample="false"
+               enableDeleteByExample="false" enableSelectByExample="false"
+               selectByExampleQueryId="false"/>-->
+
+        <!--  <table schema="public" tableName="sys_account" domainObjectName="User" />
+              	enableDeleteByExample="true" enableInsert="true" enableUpdateByExample="true" enableUpdateByPrimaryKey="true" -->
+         <!--      <table schema="public" tableName="v_post" domainObjectName="V_post" />	-->
+         <!-- 	<table schema="public" tableName="sys_pagecontrol" domainObjectName="PageControl" /> -->	
+            <table schema="dbo" tableName="tblOrderBD" domainObjectName="tblOrderBD" /> 
+           <!-- <table schema="dbo" tableName="tblOrderBD_resak" domainObjectName="tblOrderBD_resak" /> -->
+           <!-- <table schema="dbo" tableName="tblOrderBD_price" domainObjectName="tblOrderBD_price" /> -->
+             <!--<table schema="public" tableName="v_product_print" domainObjectName="V_product_print" />-->
+             </context>
+</generatorConfiguration>

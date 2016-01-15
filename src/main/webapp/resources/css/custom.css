@@ -1,0 +1,26 @@
+h1,
+h2,
+h3,
+h4,
+h5,
+h6,
+.h1,
+.h2,
+.h3,
+.h4,
+.h5,
+.h6 {
+  font-family:  "微軟正黑體",'Roboto Condensed', sans-serif;!important;
+}
+.container{
+	font-family:  "微軟正黑體",'Roboto Condensed', sans-serif;!important;
+}
+#menu_size {
+    background-color: rgba(47, 164, 231, 0.06);
+    margin-top: 20px;
+    font-size: medium;
+	
+}
+.nav{
+	font-family: "微軟正黑體",'Roboto Condensed', sans-serif;
+}
