@@ -44,6 +44,8 @@
 					<thead>
 						<tr>
 							<th>類別名稱</th>
+							<th>個人給付額(公司代扣)</th>
+							<th>福委會給付額</th>
 							<th>個人給付額</th>
 							<th>公司給付額</th>
 							<th></th>
@@ -55,6 +57,8 @@
 								<td >${price.type}</td>
 								<td>${price.cSelf}</td>
 								<td>${price.cCom}</td>
+								<td>${price.self}</td>
+								<td>${price.sCom}</td>
 								<td><c:if test="${price.type ne 'Default'}"><button >移除</button></c:if></td>
 							</tr>
 						</c:forEach>
@@ -67,11 +71,18 @@
 						<label>類別名稱</label> <input class="form-control" id="id" onChange="check($(this))">
 					</fieldset>
 					<fieldset class="form-group">
-						<label>個人給付額</label> <input class="form-control" id="self">
+						<label>個人給付額(公司代扣)</label> <input class="form-control" id="self">
+					</fieldset>
+					<fieldset class="form-group">
+						<label>福委會給付額</label> 
+						<input class="form-control" id="company">
+					</fieldset>
+					<fieldset class="form-group">
+						<label>個人給付額</label> <input class="form-control" id="person">
 					</fieldset>
 					<fieldset class="form-group">
 						<label>公司給付額</label> 
-						<input class="form-control" id="company">
+						<input class="form-control" id="com_cost">
 					</fieldset>
 					<button id="_send" type="button" class="btn btn-primary" onClick="send($(this))" alt="add" >新增</button>
 				</form>
@@ -117,7 +128,9 @@
 		$.post("setType/"+obj.attr('alt'), {
 			id : $('#id').val(),
 			self: $("#self").val(),
-			company: $("#company").val()
+			company: $("#company").val(),
+			person: $("#person").val(),
+			com_cost: $("#com_cost").val()
 		}, function(data, status) {
 			if(data=='ok'){
 				$("#alert").modal('show');

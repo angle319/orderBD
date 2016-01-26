@@ -9,9 +9,9 @@ public class tblOrderBD_price {
 
     private Integer temp1;
 
-    private Integer temp2;
+    private Integer self;
 
-    private Integer temp3;
+    private Integer sCom;
 
     public String getType() {
         return type;
@@ -45,19 +45,19 @@ public class tblOrderBD_price {
         this.temp1 = temp1;
     }
 
-    public Integer getTemp2() {
-        return temp2;
+    public Integer getSelf() {
+        return self;
     }
 
-    public void setTemp2(Integer temp2) {
-        this.temp2 = temp2;
+    public void setSelf(Integer self) {
+        this.self = self;
     }
 
-    public Integer getTemp3() {
-        return temp3;
+    public Integer getsCom() {
+        return sCom;
     }
 
-    public void setTemp3(Integer temp3) {
-        this.temp3 = temp3;
+    public void setsCom(Integer sCom) {
+        this.sCom = sCom;
     }
 }

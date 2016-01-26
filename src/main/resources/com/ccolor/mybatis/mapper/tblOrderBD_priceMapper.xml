@@ -6,8 +6,8 @@
     <result column="c_self" property="cSelf" jdbcType="INTEGER" />
     <result column="c_com" property="cCom" jdbcType="INTEGER" />
     <result column="temp1" property="temp1" jdbcType="INTEGER" />
-    <result column="temp2" property="temp2" jdbcType="INTEGER" />
-    <result column="temp3" property="temp3" jdbcType="INTEGER" />
+    <result column="self" property="self" jdbcType="INTEGER" />
+    <result column="s_com" property="sCom" jdbcType="INTEGER" />
   </resultMap>
   <sql id="Example_Where_Clause" >
     <where >
@@ -68,7 +68,7 @@
     </where>
   </sql>
   <sql id="Base_Column_List" >
-    type, c_self, c_com, temp1, temp2, temp3
+    type, c_self, c_com, temp1, self, s_com
   </sql>
   <select id="selectByExample" resultMap="BaseResultMap" parameterType="com.ccolor.mybatis.bean.tblOrderBD_priceExample" >
     select
@@ -102,11 +102,9 @@
   </delete>
   <insert id="insert" parameterType="com.ccolor.mybatis.bean.tblOrderBD_price" >
     insert into dbo.tblOrderBD_price (type, c_self, c_com, 
-      temp1, temp2, temp3
-      )
+      temp1, self, s_com)
     values (#{type,jdbcType=CHAR}, #{cSelf,jdbcType=INTEGER}, #{cCom,jdbcType=INTEGER}, 
-      #{temp1,jdbcType=INTEGER}, #{temp2,jdbcType=INTEGER}, #{temp3,jdbcType=INTEGER}
-      )
+      #{temp1,jdbcType=INTEGER}, #{self,jdbcType=INTEGER}, #{sCom,jdbcType=INTEGER})
   </insert>
   <insert id="insertSelective" parameterType="com.ccolor.mybatis.bean.tblOrderBD_price" >
     insert into dbo.tblOrderBD_price
@@ -123,11 +121,11 @@
       <if test="temp1 != null" >
         temp1,
       </if>
-      <if test="temp2 != null" >
-        temp2,
+      <if test="self != null" >
+        self,
       </if>
-      <if test="temp3 != null" >
-        temp3,
+      <if test="sCom != null" >
+        s_com,
       </if>
     </trim>
     <trim prefix="values (" suffix=")" suffixOverrides="," >
@@ -143,11 +141,11 @@
       <if test="temp1 != null" >
         #{temp1,jdbcType=INTEGER},
       </if>
-      <if test="temp2 != null" >
-        #{temp2,jdbcType=INTEGER},
+      <if test="self != null" >
+        #{self,jdbcType=INTEGER},
       </if>
-      <if test="temp3 != null" >
-        #{temp3,jdbcType=INTEGER},
+      <if test="sCom != null" >
+        #{sCom,jdbcType=INTEGER},
       </if>
     </trim>
   </insert>
@@ -172,11 +170,11 @@
       <if test="record.temp1 != null" >
         temp1 = #{record.temp1,jdbcType=INTEGER},
       </if>
-      <if test="record.temp2 != null" >
-        temp2 = #{record.temp2,jdbcType=INTEGER},
+      <if test="record.self != null" >
+        self = #{record.self,jdbcType=INTEGER},
       </if>
-      <if test="record.temp3 != null" >
-        temp3 = #{record.temp3,jdbcType=INTEGER},
+      <if test="record.sCom != null" >
+        s_com = #{record.sCom,jdbcType=INTEGER},
       </if>
     </set>
     <if test="_parameter != null" >
@@ -189,8 +187,8 @@
       c_self = #{record.cSelf,jdbcType=INTEGER},
       c_com = #{record.cCom,jdbcType=INTEGER},
       temp1 = #{record.temp1,jdbcType=INTEGER},
-      temp2 = #{record.temp2,jdbcType=INTEGER},
-      temp3 = #{record.temp3,jdbcType=INTEGER}
+      self = #{record.self,jdbcType=INTEGER},
+      s_com = #{record.sCom,jdbcType=INTEGER}
     <if test="_parameter != null" >
       <include refid="Update_By_Example_Where_Clause" />
     </if>
@@ -207,11 +205,11 @@
       <if test="temp1 != null" >
         temp1 = #{temp1,jdbcType=INTEGER},
       </if>
-      <if test="temp2 != null" >
-        temp2 = #{temp2,jdbcType=INTEGER},
+      <if test="self != null" >
+        self = #{self,jdbcType=INTEGER},
       </if>
-      <if test="temp3 != null" >
-        temp3 = #{temp3,jdbcType=INTEGER},
+      <if test="sCom != null" >
+        s_com = #{sCom,jdbcType=INTEGER},
       </if>
     </set>
     where type = #{type,jdbcType=CHAR}
@@ -221,8 +219,8 @@
     set c_self = #{cSelf,jdbcType=INTEGER},
       c_com = #{cCom,jdbcType=INTEGER},
       temp1 = #{temp1,jdbcType=INTEGER},
-      temp2 = #{temp2,jdbcType=INTEGER},
-      temp3 = #{temp3,jdbcType=INTEGER}
+      self = #{self,jdbcType=INTEGER},
+      s_com = #{sCom,jdbcType=INTEGER}
     where type = #{type,jdbcType=CHAR}
   </update>
 </mapper>

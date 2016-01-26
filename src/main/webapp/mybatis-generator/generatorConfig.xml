@@ -42,7 +42,7 @@
               	enableDeleteByExample="true" enableInsert="true" enableUpdateByExample="true" enableUpdateByPrimaryKey="true" -->
          <!--      <table schema="public" tableName="v_post" domainObjectName="V_post" />	-->
          <!-- 	<table schema="public" tableName="sys_pagecontrol" domainObjectName="PageControl" /> -->	
-            <table schema="dbo" tableName="tblOrderBD" domainObjectName="tblOrderBD" /> 
+            <table schema="dbo" tableName="tblOrderBD" domainObjectName="tblOrderBD" />
            <!-- <table schema="dbo" tableName="tblOrderBD_resak" domainObjectName="tblOrderBD_resak" /> -->
            <!-- <table schema="dbo" tableName="tblOrderBD_price" domainObjectName="tblOrderBD_price" /> -->
              <!--<table schema="public" tableName="v_product_print" domainObjectName="V_product_print" />-->

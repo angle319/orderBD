@@ -42,6 +42,8 @@ public class TypeController {
 			bean.setType(webRequest.getParameter("id"));
 			bean.setcSelf(Integer.parseInt(webRequest.getParameter("self")));
 			bean.setcCom(Integer.parseInt(webRequest.getParameter("company")));
+			bean.setSelf(Integer.parseInt(webRequest.getParameter("person")));
+			bean.setsCom(Integer.parseInt(webRequest.getParameter("com_cost")));
 			if (dataCheck(bean))
 				return "error";
 			type.add(bean);
@@ -59,6 +61,8 @@ public class TypeController {
 			bean.setType(webRequest.getParameter("id"));
 			bean.setcSelf(Integer.parseInt(webRequest.getParameter("self")));
 			bean.setcCom(Integer.parseInt(webRequest.getParameter("company")));
+			bean.setSelf(Integer.parseInt(webRequest.getParameter("person")));
+			bean.setsCom(Integer.parseInt(webRequest.getParameter("com_cost")));
 			if (dataCheck(bean))
 				return "error";
 			type.update(bean);

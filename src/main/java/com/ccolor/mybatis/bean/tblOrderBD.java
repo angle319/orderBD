@@ -17,6 +17,16 @@ public class tblOrderBD {
 
     private String temp2;
 
+    private String type;
+
+    private String cCom;
+
+    private String cSelf;
+
+    private String self;
+
+    private String sCom;
+
     public String getWorkerid() {
         return workerid;
     }
@@ -71,5 +81,45 @@ public class tblOrderBD {
 
     public void setTemp2(String temp2) {
         this.temp2 = temp2 == null ? null : temp2.trim();
+    }
+
+    public String getType() {
+        return type;
+    }
+
+    public void setType(String type) {
+        this.type = type == null ? null : type.trim();
+    }
+
+    public String getcCom() {
+        return cCom;
+    }
+
+    public void setcCom(String cCom) {
+        this.cCom = cCom == null ? null : cCom.trim();
+    }
+
+    public String getcSelf() {
+        return cSelf;
+    }
+
+    public void setcSelf(String cSelf) {
+        this.cSelf = cSelf == null ? null : cSelf.trim();
+    }
+
+    public String getSelf() {
+        return self;
+    }
+
+    public void setSelf(String self) {
+        this.self = self == null ? null : self.trim();
+    }
+
+    public String getsCom() {
+        return sCom;
+    }
+
+    public void setsCom(String sCom) {
+        this.sCom = sCom == null ? null : sCom.trim();
     }
 }

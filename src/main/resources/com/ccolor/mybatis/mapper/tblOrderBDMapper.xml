@@ -1,206 +1,339 @@
 <?xml version="1.0" encoding="UTF-8" ?>
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
-<mapper namespace="com.ccolor.mybatis.mapper.tblOrderBDMapper" >
-  <resultMap id="BaseResultMap" type="com.ccolor.mybatis.bean.tblOrderBD" >
-    <result column="workerID" property="workerid" jdbcType="CHAR" />
-    <result column="resak002" property="resak002" jdbcType="CHAR" />
-    <result column="date" property="date" jdbcType="TIMESTAMP" />
-    <result column="mid" property="mid" jdbcType="CHAR" />
-    <result column="night" property="night" jdbcType="CHAR" />
-    <result column="temp1" property="temp1" jdbcType="CHAR" />
-    <result column="temp2" property="temp2" jdbcType="CHAR" />
-  </resultMap>
-  <sql id="Example_Where_Clause" >
-    <where >
-      <foreach collection="oredCriteria" item="criteria" separator="or" >
-        <if test="criteria.valid" >
-          <trim prefix="(" suffix=")" prefixOverrides="and" >
-            <foreach collection="criteria.criteria" item="criterion" >
-              <choose >
-                <when test="criterion.noValue" >
-                  and ${criterion.condition}
-                </when>
-                <when test="criterion.singleValue" >
-                  and ${criterion.condition} #{criterion.value}
-                </when>
-                <when test="criterion.betweenValue" >
-                  and ${criterion.condition} #{criterion.value} and #{criterion.secondValue}
-                </when>
-                <when test="criterion.listValue" >
-                  and ${criterion.condition}
-                  <foreach collection="criterion.value" item="listItem" open="(" close=")" separator="," >
-                    #{listItem}
-                  </foreach>
-                </when>
-              </choose>
-            </foreach>
-          </trim>
-        </if>
-      </foreach>
-    </where>
-  </sql>
-  <sql id="Update_By_Example_Where_Clause" >
-    <where >
-      <foreach collection="example.oredCriteria" item="criteria" separator="or" >
-        <if test="criteria.valid" >
-          <trim prefix="(" suffix=")" prefixOverrides="and" >
-            <foreach collection="criteria.criteria" item="criterion" >
-              <choose >
-                <when test="criterion.noValue" >
-                  and ${criterion.condition}
-                </when>
-                <when test="criterion.singleValue" >
-                  and ${criterion.condition} #{criterion.value}
-                </when>
-                <when test="criterion.betweenValue" >
-                  and ${criterion.condition} #{criterion.value} and #{criterion.secondValue}
-                </when>
-                <when test="criterion.listValue" >
-                  and ${criterion.condition}
-                  <foreach collection="criterion.value" item="listItem" open="(" close=")" separator="," >
-                    #{listItem}
-                  </foreach>
-                </when>
-              </choose>
-            </foreach>
-          </trim>
-        </if>
-      </foreach>
-    </where>
-  </sql>
-  <sql id="Base_Column_List" >
-    workerID, resak002, date, mid, night, temp1, temp2
-  </sql>
-  <select id="selectByExample" resultMap="BaseResultMap" parameterType="com.ccolor.mybatis.bean.tblOrderBDExample" >
-    select
-    <if test="distinct" >
-      distinct
-    </if>
-    <include refid="Base_Column_List" />
-    from dbo.tblOrderBD
-    <if test="_parameter != null" >
-      <include refid="Example_Where_Clause" />
-    </if>
-    <if test="orderByClause != null" >
-      order by ${orderByClause}
-    </if>
-  </select>
-  <select id="selectResak"  resultType="java.lang.String" >
-    select workerID from
-  	(select workerID from dbo.resak where (resak001=#{record.resak001,jdbcType=CHAR} or workerID=#{record.resak001,jdbcType=CHAR})and resak002=#{record.resak002,jdbcType=CHAR} 
-    union
-     select workerID from dbo.tblOrderBD_resak where workerID=#{record.resak001,jdbcType=CHAR} and name=#{record.resak002,jdbcType=CHAR}) as temp
-	GROUP BY workerID;
-  </select>
-  <delete id="deleteByExample" parameterType="com.ccolor.mybatis.bean.tblOrderBDExample" >
-    delete from dbo.tblOrderBD
-    <if test="_parameter != null" >
-      <include refid="Example_Where_Clause" />
-    </if>
-  </delete>
-  <insert id="insert" parameterType="com.ccolor.mybatis.bean.tblOrderBD" >
-    insert into dbo.tblOrderBD (workerID, resak002, date, 
-      mid, night, temp1, temp2
-      )
-    values (#{workerid,jdbcType=CHAR}, #{resak002,jdbcType=CHAR}, #{date,jdbcType=TIMESTAMP}, 
-      #{mid,jdbcType=CHAR}, #{night,jdbcType=CHAR}, #{temp1,jdbcType=CHAR}, #{temp2,jdbcType=CHAR}
-      )
-  </insert>
-  <insert id="insertSelective" parameterType="com.ccolor.mybatis.bean.tblOrderBD" >
-    insert into dbo.tblOrderBD
-    <trim prefix="(" suffix=")" suffixOverrides="," >
-      <if test="workerid != null" >
-        workerID,
-      </if>
-      <if test="resak002 != null" >
-        resak002,
-      </if>
-      <if test="date != null" >
-        date,
-      </if>
-      <if test="mid != null" >
-        mid,
-      </if>
-      <if test="night != null" >
-        night,
-      </if>
-      <if test="temp1 != null" >
-        temp1,
-      </if>
-      <if test="temp2 != null" >
-        temp2,
-      </if>
-    </trim>
-    <trim prefix="values (" suffix=")" suffixOverrides="," >
-      <if test="workerid != null" >
-        #{workerid,jdbcType=CHAR},
-      </if>
-      <if test="resak002 != null" >
-        #{resak002,jdbcType=CHAR},
-      </if>
-      <if test="date != null" >
-        #{date,jdbcType=TIMESTAMP},
-      </if>
-      <if test="mid != null" >
-        #{mid,jdbcType=CHAR},
-      </if>
-      <if test="night != null" >
-        #{night,jdbcType=CHAR},
-      </if>
-      <if test="temp1 != null" >
-        #{temp1,jdbcType=CHAR},
-      </if>
-      <if test="temp2 != null" >
-        #{temp2,jdbcType=CHAR},
-      </if>
-    </trim>
-  </insert>
-  <select id="countByExample" parameterType="com.ccolor.mybatis.bean.tblOrderBDExample" resultType="java.lang.Integer" >
-    select count(*) from dbo.tblOrderBD
-    <if test="_parameter != null" >
-      <include refid="Example_Where_Clause" />
-    </if>
-  </select>
-  <update id="updateByExampleSelective" parameterType="map" >
-    update dbo.tblOrderBD
-    <set >
-      <if test="record.workerid != null" >
-        workerID = #{record.workerid,jdbcType=CHAR},
-      </if>
-      <if test="record.resak002 != null" >
-        resak002 = #{record.resak002,jdbcType=CHAR},
-      </if>
-      <if test="record.date != null" >
-        date = #{record.date,jdbcType=TIMESTAMP},
-      </if>
-      <if test="record.mid != null" >
-        mid = #{record.mid,jdbcType=CHAR},
-      </if>
-      <if test="record.night != null" >
-        night = #{record.night,jdbcType=CHAR},
-      </if>
-      <if test="record.temp1 != null" >
-        temp1 = #{record.temp1,jdbcType=CHAR},
-      </if>
-      <if test="record.temp2 != null" >
-        temp2 = #{record.temp2,jdbcType=CHAR},
-      </if>
-    </set>
-    <if test="_parameter != null" >
-      <include refid="Update_By_Example_Where_Clause" />
-    </if>
-  </update>
-  <update id="updateByExample" parameterType="map" >
-    update dbo.tblOrderBD
-    set workerID = #{record.workerid,jdbcType=CHAR},
-      resak002 = #{record.resak002,jdbcType=CHAR},
-      date = #{record.date,jdbcType=TIMESTAMP},
-      mid = #{record.mid,jdbcType=CHAR},
-      night = #{record.night,jdbcType=CHAR},
-      temp1 = #{record.temp1,jdbcType=CHAR},
-      temp2 = #{record.temp2,jdbcType=CHAR}
-    <if test="_parameter != null" >
-      <include refid="Update_By_Example_Where_Clause" />
-    </if>
-  </update>
+<mapper namespace="com.ccolor.mybatis.mapper.tblOrderBDMapper">
+	<resultMap id="BaseResultMap" type="com.ccolor.mybatis.bean.tblOrderBD">
+		<result column="workerID" property="workerid" jdbcType="CHAR" />
+		<result column="resak002" property="resak002" jdbcType="CHAR" />
+		<result column="date" property="date" jdbcType="TIMESTAMP" />
+		<result column="mid" property="mid" jdbcType="CHAR" />
+		<result column="night" property="night" jdbcType="CHAR" />
+		<result column="temp1" property="temp1" jdbcType="CHAR" />
+		<result column="temp2" property="temp2" jdbcType="CHAR" />
+		<result column="type" property="type" jdbcType="CHAR" />
+		<result column="c_com" property="cCom" jdbcType="CHAR" />
+		<result column="c_self" property="cSelf" jdbcType="CHAR" />
+		<result column="self" property="self" jdbcType="CHAR" />
+		<result column="s_com" property="sCom" jdbcType="CHAR" />
+	</resultMap>
+	<sql id="Example_Where_Clause">
+		<where>
+			<foreach collection="oredCriteria" item="criteria" separator="or">
+				<if test="criteria.valid">
+					<trim prefix="(" suffix=")" prefixOverrides="and">
+						<foreach collection="criteria.criteria" item="criterion">
+							<choose>
+								<when test="criterion.noValue">
+									and ${criterion.condition}
+								</when>
+								<when test="criterion.singleValue">
+									and ${criterion.condition} #{criterion.value}
+								</when>
+								<when test="criterion.betweenValue">
+									and ${criterion.condition} #{criterion.value} and
+									#{criterion.secondValue}
+								</when>
+								<when test="criterion.listValue">
+									and ${criterion.condition}
+									<foreach collection="criterion.value" item="listItem"
+										open="(" close=")" separator=",">
+										#{listItem}
+									</foreach>
+								</when>
+							</choose>
+						</foreach>
+					</trim>
+				</if>
+			</foreach>
+		</where>
+	</sql>
+	<sql id="Update_By_Example_Where_Clause">
+		<where>
+			<foreach collection="example.oredCriteria" item="criteria"
+				separator="or">
+				<if test="criteria.valid">
+					<trim prefix="(" suffix=")" prefixOverrides="and">
+						<foreach collection="criteria.criteria" item="criterion">
+							<choose>
+								<when test="criterion.noValue">
+									and ${criterion.condition}
+								</when>
+								<when test="criterion.singleValue">
+									and ${criterion.condition} #{criterion.value}
+								</when>
+								<when test="criterion.betweenValue">
+									and ${criterion.condition} #{criterion.value} and
+									#{criterion.secondValue}
+								</when>
+								<when test="criterion.listValue">
+									and ${criterion.condition}
+									<foreach collection="criterion.value" item="listItem"
+										open="(" close=")" separator=",">
+										#{listItem}
+									</foreach>
+								</when>
+							</choose>
+						</foreach>
+					</trim>
+				</if>
+			</foreach>
+		</where>
+	</sql>
+	<sql id="Base_Column_List">
+		workerID, resak002, date, mid, night, temp1, temp2, type, c_com, c_self, self,
+		s_com
+	</sql>
+	<select id="selectByExample" resultMap="BaseResultMap"
+		parameterType="com.ccolor.mybatis.bean.tblOrderBDExample">
+		select
+		<if test="distinct">
+			distinct
+		</if>
+		<include refid="Base_Column_List" />
+		from dbo.tblOrderBD
+		<if test="_parameter != null">
+			<include refid="Example_Where_Clause" />
+		</if>
+		<if test="orderByClause != null">
+			order by ${orderByClause}
+		</if>
+	</select>
+	
+	<delete id="deleteByExample" parameterType="com.ccolor.mybatis.bean.tblOrderBDExample">
+		delete from dbo.tblOrderBD
+		<if test="_parameter != null">
+			<include refid="Example_Where_Clause" />
+		</if>
+	</delete>
+	<insert id="insert" parameterType="com.ccolor.mybatis.bean.tblOrderBD">
+		insert into dbo.tblOrderBD (workerID, resak002, date,
+		mid, night, temp1, temp2,
+		type, c_com, c_self, self,
+		s_com)
+		values (#{workerid,jdbcType=CHAR}, #{resak002,jdbcType=CHAR},
+		#{date,jdbcType=TIMESTAMP},
+		#{mid,jdbcType=CHAR}, #{night,jdbcType=CHAR}, #{temp1,jdbcType=CHAR},
+		#{temp2,jdbcType=CHAR},
+		#{type,jdbcType=CHAR}, #{cCom,jdbcType=CHAR}, #{cSelf,jdbcType=CHAR}, #{self,jdbcType=CHAR},
+		#{sCom,jdbcType=CHAR})
+	</insert>
+	<insert id="insertSelective" parameterType="com.ccolor.mybatis.bean.tblOrderBD">
+		insert into dbo.tblOrderBD
+		<trim prefix="(" suffix=")" suffixOverrides=",">
+			<if test="workerid != null">
+				workerID,
+			</if>
+			<if test="resak002 != null">
+				resak002,
+			</if>
+			<if test="date != null">
+				date,
+			</if>
+			<if test="mid != null">
+				mid,
+			</if>
+			<if test="night != null">
+				night,
+			</if>
+			<if test="temp1 != null">
+				temp1,
+			</if>
+			<if test="temp2 != null">
+				temp2,
+			</if>
+			<if test="type != null">
+				type,
+			</if>
+			<if test="cCom != null">
+				c_com,
+			</if>
+			<if test="cSelf != null">
+				c_self,
+			</if>
+			<if test="self != null">
+				self,
+			</if>
+			<if test="sCom != null">
+				s_com,
+			</if>
+		</trim>
+		<trim prefix="values (" suffix=")" suffixOverrides=",">
+			<if test="workerid != null">
+				#{workerid,jdbcType=CHAR},
+			</if>
+			<if test="resak002 != null">
+				#{resak002,jdbcType=CHAR},
+			</if>
+			<if test="date != null">
+				#{date,jdbcType=TIMESTAMP},
+			</if>
+			<if test="mid != null">
+				#{mid,jdbcType=CHAR},
+			</if>
+			<if test="night != null">
+				#{night,jdbcType=CHAR},
+			</if>
+			<if test="temp1 != null">
+				#{temp1,jdbcType=CHAR},
+			</if>
+			<if test="temp2 != null">
+				#{temp2,jdbcType=CHAR},
+			</if>
+			<if test="type != null">
+				#{type,jdbcType=CHAR},
+			</if>
+			<if test="cCom != null">
+				#{cCom,jdbcType=CHAR},
+			</if>
+			<if test="cSelf != null">
+				#{cSelf,jdbcType=CHAR},
+			</if>
+			<if test="self != null">
+				#{self,jdbcType=CHAR},
+			</if>
+			<if test="sCom != null">
+				#{sCom,jdbcType=CHAR},
+			</if>
+		</trim>
+	</insert>
+	<select id="countByExample" parameterType="com.ccolor.mybatis.bean.tblOrderBDExample"
+		resultType="java.lang.Integer">
+		select count(*) from dbo.tblOrderBD
+		<if test="_parameter != null">
+			<include refid="Example_Where_Clause" />
+		</if>
+	</select>
+	<update id="updateByExampleSelective" parameterType="map">
+		update dbo.tblOrderBD
+		<set>
+			<if test="record.workerid != null">
+				workerID = #{record.workerid,jdbcType=CHAR},
+			</if>
+			<if test="record.resak002 != null">
+				resak002 = #{record.resak002,jdbcType=CHAR},
+			</if>
+			<if test="record.date != null">
+				date = #{record.date,jdbcType=TIMESTAMP},
+			</if>
+			<if test="record.mid != null">
+				mid = #{record.mid,jdbcType=CHAR},
+			</if>
+			<if test="record.night != null">
+				night = #{record.night,jdbcType=CHAR},
+			</if>
+			<if test="record.temp1 != null">
+				temp1 = #{record.temp1,jdbcType=CHAR},
+			</if>
+			<if test="record.temp2 != null">
+				temp2 = #{record.temp2,jdbcType=CHAR},
+			</if>
+			<if test="record.type != null">
+				type = #{record.type,jdbcType=CHAR},
+			</if>
+			<if test="record.cCom != null">
+				c_com = #{record.cCom,jdbcType=CHAR},
+			</if>
+			<if test="record.cSelf != null">
+				c_self = #{record.cSelf,jdbcType=CHAR},
+			</if>
+			<if test="record.self != null">
+				self = #{record.self,jdbcType=CHAR},
+			</if>
+			<if test="record.sCom != null">
+				s_com = #{record.sCom,jdbcType=CHAR},
+			</if>
+		</set>
+		<if test="_parameter != null">
+			<include refid="Update_By_Example_Where_Clause" />
+		</if>
+	</update>
+	<update id="updateByExample" parameterType="map">
+		update dbo.tblOrderBD
+		set workerID = #{record.workerid,jdbcType=CHAR},
+		resak002 = #{record.resak002,jdbcType=CHAR},
+		date = #{record.date,jdbcType=TIMESTAMP},
+		mid = #{record.mid,jdbcType=CHAR},
+		night = #{record.night,jdbcType=CHAR},
+		temp1 = #{record.temp1,jdbcType=CHAR},
+		temp2 = #{record.temp2,jdbcType=CHAR},
+		type = #{record.type,jdbcType=CHAR},
+		c_com = #{record.cCom,jdbcType=CHAR},
+		c_self = #{record.cSelf,jdbcType=CHAR},
+		self = #{record.self,jdbcType=CHAR},
+		s_com = #{record.sCom,jdbcType=CHAR}
+		<if test="_parameter != null">
+			<include refid="Update_By_Example_Where_Clause" />
+		</if>
+	</update>
+	<update id="updateTodayPrice" parameterType="java.util.Date">
+  <![CDATA[ UPDATE dbo.tblOrderBD
+   SET 
+      c_com = temp.c_com
+      ,c_self = temp.c_self
+      ,self = temp.self
+      ,s_com = temp.s_com
+ FROM 
+    (select A.*,workerID from dbo.tblOrderBD_price as A, 
+(select workerID as workerID,resak002 as name,'Default' as type
+ from dbo.resak
+	where resak898='' and workerID not in (select workerID from dbo.tblOrderBD_resak)) as B
+	where A.type=B.type) as temp
+ WHERE temp.workerID=dbo.tblOrderBD.workerID and dbo.tblOrderBD.date<=#{date,jdbcType=TIMESTAMP} and dbo.tblOrderBD.type is null
+ 
+ UPDATE dbo.tblOrderBD
+   SET 
+   	  type = temp.type
+      ,c_com = temp.c_com
+      ,c_self = temp.c_self
+      ,self = temp.self
+      ,s_com = temp.s_com
+ FROM 
+    (select workerID,A.* from  dbo.tblOrderBD_price as A, EF2KWeb.dbo.tblOrderBD_resak as B
+	where A.type=B.type) as temp
+ WHERE temp.workerID=dbo.tblOrderBD.workerID and dbo.tblOrderBD.date<=#{date,jdbcType=TIMESTAMP} and dbo.tblOrderBD.type is null]]>
+	</update>
+<select id="selectReport" resultMap="BaseResultMap" parameterType="map">
+		<![CDATA[SELECT
+		null as workerID,null as resak002,null as date,'false' as mid, 'false' as night, null as temp1,null as temp2,
+		'午' as type,
+		sum(CAST(A.c_com AS INT)) as c_com,
+		sum(CAST(A.c_self AS INT)) as c_self,
+		sum(CAST(A.self AS INT)) as self,
+		sum(CAST(A.s_com AS INT)) as s_com
+		FROM dbo.tblOrderBD as A
+		where mid ='true']]>
+		<if test="record.s_date != null">
+			<![CDATA[and date>=#{record.s_date,jdbcType=TIMESTAMP}]]>
+		</if>
+		<if test="record.e_date != null">
+			<![CDATA[and date<=#{record.e_date,jdbcType=TIMESTAMP}]]>
+		</if>
+		<![CDATA[union
+		SELECT
+		null as workerID,null as resak002,null as date,'false' as mid, 'false' as night, null as temp1,null as temp2,
+		'晚' as type,
+		sum(CAST(A.c_com AS INT)) as c_com,
+		sum(CAST(A.c_self AS INT)) as c_self,
+		sum(CAST(A.self AS INT)) as self,
+		sum(CAST(A.s_com AS INT)) as s_com
+		FROM dbo.tblOrderBD as A
+		where night ='true']]>
+		<if test="record.s_date != null">
+			<![CDATA[and date>=#{record.s_date,jdbcType=TIMESTAMP}]]>
+		</if>
+		<if test="record.e_date != null">
+			<![CDATA[and date<=#{record.e_date,jdbcType=TIMESTAMP}]]>
+		</if>
+	</select>
+	<select id="selectResak" resultType="java.lang.String">
+		select workerID from
+		(select workerID from dbo.resak where
+		(resak001=#{record.resak001,jdbcType=CHAR} or
+		workerID=#{record.resak001,jdbcType=CHAR})and
+		resak002=#{record.resak002,jdbcType=CHAR}
+		union
+		select workerID from dbo.tblOrderBD_resak where
+		workerID=#{record.resak001,jdbcType=CHAR} and
+		name=#{record.resak002,jdbcType=CHAR}) as temp
+		GROUP BY workerID;
+	</select>
 </mapper>

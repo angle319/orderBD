@@ -584,6 +584,356 @@ public class tblOrderBDExample {
             addCriterion("temp2 not between", value1, value2, "temp2");
             return (Criteria) this;
         }
+
+        public Criteria andTypeIsNull() {
+            addCriterion("type is null");
+            return (Criteria) this;
+        }
+
+        public Criteria andTypeIsNotNull() {
+            addCriterion("type is not null");
+            return (Criteria) this;
+        }
+
+        public Criteria andTypeEqualTo(String value) {
+            addCriterion("type =", value, "type");
+            return (Criteria) this;
+        }
+
+        public Criteria andTypeNotEqualTo(String value) {
+            addCriterion("type <>", value, "type");
+            return (Criteria) this;
+        }
+
+        public Criteria andTypeGreaterThan(String value) {
+            addCriterion("type >", value, "type");
+            return (Criteria) this;
+        }
+
+        public Criteria andTypeGreaterThanOrEqualTo(String value) {
+            addCriterion("type >=", value, "type");
+            return (Criteria) this;
+        }
+
+        public Criteria andTypeLessThan(String value) {
+            addCriterion("type <", value, "type");
+            return (Criteria) this;
+        }
+
+        public Criteria andTypeLessThanOrEqualTo(String value) {
+            addCriterion("type <=", value, "type");
+            return (Criteria) this;
+        }
+
+        public Criteria andTypeLike(String value) {
+            addCriterion("type like", value, "type");
+            return (Criteria) this;
+        }
+
+        public Criteria andTypeNotLike(String value) {
+            addCriterion("type not like", value, "type");
+            return (Criteria) this;
+        }
+
+        public Criteria andTypeIn(List<String> values) {
+            addCriterion("type in", values, "type");
+            return (Criteria) this;
+        }
+
+        public Criteria andTypeNotIn(List<String> values) {
+            addCriterion("type not in", values, "type");
+            return (Criteria) this;
+        }
+
+        public Criteria andTypeBetween(String value1, String value2) {
+            addCriterion("type between", value1, value2, "type");
+            return (Criteria) this;
+        }
+
+        public Criteria andTypeNotBetween(String value1, String value2) {
+            addCriterion("type not between", value1, value2, "type");
+            return (Criteria) this;
+        }
+
+        public Criteria andCComIsNull() {
+            addCriterion("c_com is null");
+            return (Criteria) this;
+        }
+
+        public Criteria andCComIsNotNull() {
+            addCriterion("c_com is not null");
+            return (Criteria) this;
+        }
+
+        public Criteria andCComEqualTo(String value) {
+            addCriterion("c_com =", value, "cCom");
+            return (Criteria) this;
+        }
+
+        public Criteria andCComNotEqualTo(String value) {
+            addCriterion("c_com <>", value, "cCom");
+            return (Criteria) this;
+        }
+
+        public Criteria andCComGreaterThan(String value) {
+            addCriterion("c_com >", value, "cCom");
+            return (Criteria) this;
+        }
+
+        public Criteria andCComGreaterThanOrEqualTo(String value) {
+            addCriterion("c_com >=", value, "cCom");
+            return (Criteria) this;
+        }
+
+        public Criteria andCComLessThan(String value) {
+            addCriterion("c_com <", value, "cCom");
+            return (Criteria) this;
+        }
+
+        public Criteria andCComLessThanOrEqualTo(String value) {
+            addCriterion("c_com <=", value, "cCom");
+            return (Criteria) this;
+        }
+
+        public Criteria andCComLike(String value) {
+            addCriterion("c_com like", value, "cCom");
+            return (Criteria) this;
+        }
+
+        public Criteria andCComNotLike(String value) {
+            addCriterion("c_com not like", value, "cCom");
+            return (Criteria) this;
+        }
+
+        public Criteria andCComIn(List<String> values) {
+            addCriterion("c_com in", values, "cCom");
+            return (Criteria) this;
+        }
+
+        public Criteria andCComNotIn(List<String> values) {
+            addCriterion("c_com not in", values, "cCom");
+            return (Criteria) this;
+        }
+
+        public Criteria andCComBetween(String value1, String value2) {
+            addCriterion("c_com between", value1, value2, "cCom");
+            return (Criteria) this;
+        }
+
+        public Criteria andCComNotBetween(String value1, String value2) {
+            addCriterion("c_com not between", value1, value2, "cCom");
+            return (Criteria) this;
+        }
+
+        public Criteria andCSelfIsNull() {
+            addCriterion("c_self is null");
+            return (Criteria) this;
+        }
+
+        public Criteria andCSelfIsNotNull() {
+            addCriterion("c_self is not null");
+            return (Criteria) this;
+        }
+
+        public Criteria andCSelfEqualTo(String value) {
+            addCriterion("c_self =", value, "cSelf");
+            return (Criteria) this;
+        }
+
+        public Criteria andCSelfNotEqualTo(String value) {
+            addCriterion("c_self <>", value, "cSelf");
+            return (Criteria) this;
+        }
+
+        public Criteria andCSelfGreaterThan(String value) {
+            addCriterion("c_self >", value, "cSelf");
+            return (Criteria) this;
+        }
+
+        public Criteria andCSelfGreaterThanOrEqualTo(String value) {
+            addCriterion("c_self >=", value, "cSelf");
+            return (Criteria) this;
+        }
+
+        public Criteria andCSelfLessThan(String value) {
+            addCriterion("c_self <", value, "cSelf");
+            return (Criteria) this;
+        }
+
+        public Criteria andCSelfLessThanOrEqualTo(String value) {
+            addCriterion("c_self <=", value, "cSelf");
+            return (Criteria) this;
+        }
+
+        public Criteria andCSelfLike(String value) {
+            addCriterion("c_self like", value, "cSelf");
+            return (Criteria) this;
+        }
+
+        public Criteria andCSelfNotLike(String value) {
+            addCriterion("c_self not like", value, "cSelf");
+            return (Criteria) this;
+        }
+
+        public Criteria andCSelfIn(List<String> values) {
+            addCriterion("c_self in", values, "cSelf");
+            return (Criteria) this;
+        }
+
+        public Criteria andCSelfNotIn(List<String> values) {
+            addCriterion("c_self not in", values, "cSelf");
+            return (Criteria) this;
+        }
+
+        public Criteria andCSelfBetween(String value1, String value2) {
+            addCriterion("c_self between", value1, value2, "cSelf");
+            return (Criteria) this;
+        }
+
+        public Criteria andCSelfNotBetween(String value1, String value2) {
+            addCriterion("c_self not between", value1, value2, "cSelf");
+            return (Criteria) this;
+        }
+
+        public Criteria andSelfIsNull() {
+            addCriterion("self is null");
+            return (Criteria) this;
+        }
+
+        public Criteria andSelfIsNotNull() {
+            addCriterion("self is not null");
+            return (Criteria) this;
+        }
+
+        public Criteria andSelfEqualTo(String value) {
+            addCriterion("self =", value, "self");
+            return (Criteria) this;
+        }
+
+        public Criteria andSelfNotEqualTo(String value) {
+            addCriterion("self <>", value, "self");
+            return (Criteria) this;
+        }
+
+        public Criteria andSelfGreaterThan(String value) {
+            addCriterion("self >", value, "self");
+            return (Criteria) this;
+        }
+
+        public Criteria andSelfGreaterThanOrEqualTo(String value) {
+            addCriterion("self >=", value, "self");
+            return (Criteria) this;
+        }
+
+        public Criteria andSelfLessThan(String value) {
+            addCriterion("self <", value, "self");
+            return (Criteria) this;
+        }
+
+        public Criteria andSelfLessThanOrEqualTo(String value) {
+            addCriterion("self <=", value, "self");
+            return (Criteria) this;
+        }
+
+        public Criteria andSelfLike(String value) {
+            addCriterion("self like", value, "self");
+            return (Criteria) this;
+        }
+
+        public Criteria andSelfNotLike(String value) {
+            addCriterion("self not like", value, "self");
+            return (Criteria) this;
+        }
+
+        public Criteria andSelfIn(List<String> values) {
+            addCriterion("self in", values, "self");
+            return (Criteria) this;
+        }
+
+        public Criteria andSelfNotIn(List<String> values) {
+            addCriterion("self not in", values, "self");
+            return (Criteria) this;
+        }
+
+        public Criteria andSelfBetween(String value1, String value2) {
+            addCriterion("self between", value1, value2, "self");
+            return (Criteria) this;
+        }
+
+        public Criteria andSelfNotBetween(String value1, String value2) {
+            addCriterion("self not between", value1, value2, "self");
+            return (Criteria) this;
+        }
+
+        public Criteria andSComIsNull() {
+            addCriterion("s_com is null");
+            return (Criteria) this;
+        }
+
+        public Criteria andSComIsNotNull() {
+            addCriterion("s_com is not null");
+            return (Criteria) this;
+        }
+
+        public Criteria andSComEqualTo(String value) {
+            addCriterion("s_com =", value, "sCom");
+            return (Criteria) this;
+        }
+
+        public Criteria andSComNotEqualTo(String value) {
+            addCriterion("s_com <>", value, "sCom");
+            return (Criteria) this;
+        }
+
+        public Criteria andSComGreaterThan(String value) {
+            addCriterion("s_com >", value, "sCom");
+            return (Criteria) this;
+        }
+
+        public Criteria andSComGreaterThanOrEqualTo(String value) {
+            addCriterion("s_com >=", value, "sCom");
+            return (Criteria) this;
+        }
+
+        public Criteria andSComLessThan(String value) {
+            addCriterion("s_com <", value, "sCom");
+            return (Criteria) this;
+        }
+
+        public Criteria andSComLessThanOrEqualTo(String value) {
+            addCriterion("s_com <=", value, "sCom");
+            return (Criteria) this;
+        }
+
+        public Criteria andSComLike(String value) {
+            addCriterion("s_com like", value, "sCom");
+            return (Criteria) this;
+        }
+
+        public Criteria andSComNotLike(String value) {
+            addCriterion("s_com not like", value, "sCom");
+            return (Criteria) this;
+        }
+
+        public Criteria andSComIn(List<String> values) {
+            addCriterion("s_com in", values, "sCom");
+            return (Criteria) this;
+        }
+
+        public Criteria andSComNotIn(List<String> values) {
+            addCriterion("s_com not in", values, "sCom");
+            return (Criteria) this;
+        }
+
+        public Criteria andSComBetween(String value1, String value2) {
+            addCriterion("s_com between", value1, value2, "sCom");
+            return (Criteria) this;
+        }
+
+        public Criteria andSComNotBetween(String value1, String value2) {
+            addCriterion("s_com not between", value1, value2, "sCom");
+            return (Criteria) this;
+        }
     }
 
     public static class Criteria extends GeneratedCriteria {

@@ -354,123 +354,123 @@ public class tblOrderBD_priceExample {
             return (Criteria) this;
         }
 
-        public Criteria andTemp2IsNull() {
-            addCriterion("temp2 is null");
+        public Criteria andSelfIsNull() {
+            addCriterion("self is null");
             return (Criteria) this;
         }
 
-        public Criteria andTemp2IsNotNull() {
-            addCriterion("temp2 is not null");
+        public Criteria andSelfIsNotNull() {
+            addCriterion("self is not null");
             return (Criteria) this;
         }
 
-        public Criteria andTemp2EqualTo(Integer value) {
-            addCriterion("temp2 =", value, "temp2");
+        public Criteria andSelfEqualTo(Integer value) {
+            addCriterion("self =", value, "self");
             return (Criteria) this;
         }
 
-        public Criteria andTemp2NotEqualTo(Integer value) {
-            addCriterion("temp2 <>", value, "temp2");
+        public Criteria andSelfNotEqualTo(Integer value) {
+            addCriterion("self <>", value, "self");
             return (Criteria) this;
         }
 
-        public Criteria andTemp2GreaterThan(Integer value) {
-            addCriterion("temp2 >", value, "temp2");
+        public Criteria andSelfGreaterThan(Integer value) {
+            addCriterion("self >", value, "self");
             return (Criteria) this;
         }
 
-        public Criteria andTemp2GreaterThanOrEqualTo(Integer value) {
-            addCriterion("temp2 >=", value, "temp2");
+        public Criteria andSelfGreaterThanOrEqualTo(Integer value) {
+            addCriterion("self >=", value, "self");
             return (Criteria) this;
         }
 
-        public Criteria andTemp2LessThan(Integer value) {
-            addCriterion("temp2 <", value, "temp2");
+        public Criteria andSelfLessThan(Integer value) {
+            addCriterion("self <", value, "self");
             return (Criteria) this;
         }
 
-        public Criteria andTemp2LessThanOrEqualTo(Integer value) {
-            addCriterion("temp2 <=", value, "temp2");
+        public Criteria andSelfLessThanOrEqualTo(Integer value) {
+            addCriterion("self <=", value, "self");
             return (Criteria) this;
         }
 
-        public Criteria andTemp2In(List<Integer> values) {
-            addCriterion("temp2 in", values, "temp2");
+        public Criteria andSelfIn(List<Integer> values) {
+            addCriterion("self in", values, "self");
             return (Criteria) this;
         }
 
-        public Criteria andTemp2NotIn(List<Integer> values) {
-            addCriterion("temp2 not in", values, "temp2");
+        public Criteria andSelfNotIn(List<Integer> values) {
+            addCriterion("self not in", values, "self");
             return (Criteria) this;
         }
 
-        public Criteria andTemp2Between(Integer value1, Integer value2) {
-            addCriterion("temp2 between", value1, value2, "temp2");
+        public Criteria andSelfBetween(Integer value1, Integer value2) {
+            addCriterion("self between", value1, value2, "self");
             return (Criteria) this;
         }
 
-        public Criteria andTemp2NotBetween(Integer value1, Integer value2) {
-            addCriterion("temp2 not between", value1, value2, "temp2");
+        public Criteria andSelfNotBetween(Integer value1, Integer value2) {
+            addCriterion("self not between", value1, value2, "self");
             return (Criteria) this;
         }
 
-        public Criteria andTemp3IsNull() {
-            addCriterion("temp3 is null");
+        public Criteria andSComIsNull() {
+            addCriterion("s_com is null");
             return (Criteria) this;
         }
 
-        public Criteria andTemp3IsNotNull() {
-            addCriterion("temp3 is not null");
+        public Criteria andSComIsNotNull() {
+            addCriterion("s_com is not null");
             return (Criteria) this;
         }
 
-        public Criteria andTemp3EqualTo(Integer value) {
-            addCriterion("temp3 =", value, "temp3");
+        public Criteria andSComEqualTo(Integer value) {
+            addCriterion("s_com =", value, "sCom");
             return (Criteria) this;
         }
 
-        public Criteria andTemp3NotEqualTo(Integer value) {
-            addCriterion("temp3 <>", value, "temp3");
+        public Criteria andSComNotEqualTo(Integer value) {
+            addCriterion("s_com <>", value, "sCom");
             return (Criteria) this;
         }
 
-        public Criteria andTemp3GreaterThan(Integer value) {
-            addCriterion("temp3 >", value, "temp3");
+        public Criteria andSComGreaterThan(Integer value) {
+            addCriterion("s_com >", value, "sCom");
             return (Criteria) this;
         }
 
-        public Criteria andTemp3GreaterThanOrEqualTo(Integer value) {
-            addCriterion("temp3 >=", value, "temp3");
+        public Criteria andSComGreaterThanOrEqualTo(Integer value) {
+            addCriterion("s_com >=", value, "sCom");
             return (Criteria) this;
         }
 
-        public Criteria andTemp3LessThan(Integer value) {
-            addCriterion("temp3 <", value, "temp3");
+        public Criteria andSComLessThan(Integer value) {
+            addCriterion("s_com <", value, "sCom");
             return (Criteria) this;
         }
 
-        public Criteria andTemp3LessThanOrEqualTo(Integer value) {
-            addCriterion("temp3 <=", value, "temp3");
+        public Criteria andSComLessThanOrEqualTo(Integer value) {
+            addCriterion("s_com <=", value, "sCom");
             return (Criteria) this;
         }
 
-        public Criteria andTemp3In(List<Integer> values) {
-            addCriterion("temp3 in", values, "temp3");
+        public Criteria andSComIn(List<Integer> values) {
+            addCriterion("s_com in", values, "sCom");
             return (Criteria) this;
         }
 
-        public Criteria andTemp3NotIn(List<Integer> values) {
-            addCriterion("temp3 not in", values, "temp3");
+        public Criteria andSComNotIn(List<Integer> values) {
+            addCriterion("s_com not in", values, "sCom");
             return (Criteria) this;
         }
 
-        public Criteria andTemp3Between(Integer value1, Integer value2) {
-            addCriterion("temp3 between", value1, value2, "temp3");
+        public Criteria andSComBetween(Integer value1, Integer value2) {
+            addCriterion("s_com between", value1, value2, "sCom");
             return (Criteria) this;
         }
 
-        public Criteria andTemp3NotBetween(Integer value1, Integer value2) {
-            addCriterion("temp3 not between", value1, value2, "temp3");
+        public Criteria andSComNotBetween(Integer value1, Integer value2) {
+            addCriterion("s_com not between", value1, value2, "sCom");
             return (Criteria) this;
         }
     }

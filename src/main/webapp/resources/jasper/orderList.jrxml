@@ -1,0 +1,288 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<jasperReport xmlns="http://jasperreports.sourceforge.net/jasperreports" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports http://jasperreports.sourceforge.net/xsd/jasperreport.xsd" name="orderList" language="groovy" pageWidth="595" pageHeight="842" whenNoDataType="AllSectionsNoDetail" columnWidth="555" leftMargin="20" rightMargin="20" topMargin="20" bottomMargin="20" uuid="9510420a-3d95-4d95-8fd5-f73427636e4e">
+	<property name="ireport.zoom" value="2.657341500000001"/>
+	<property name="ireport.x" value="0"/>
+	<property name="ireport.y" value="169"/>
+	<parameter name="s_date" class="java.lang.String"/>
+	<parameter name="e_date" class="java.lang.String">
+		<defaultValueExpression><![CDATA[]]></defaultValueExpression>
+	</parameter>
+	<parameter name="time" class="java.lang.String"/>
+	<parameter name="pic_path" class="java.lang.String"/>
+	<queryString>
+		<![CDATA[SELECT          workerID, resak002, type, mid, night, c_com, c_self, self, s_com, c_com + c_self + self + s_com AS totle
+FROM              (SELECT          workerID, resak002, type, SUM(CASE WHEN mid = 'true' THEN 1 ELSE 0 END) AS mid,
+                                                        SUM(CASE WHEN night = 'true' THEN 1 ELSE 0 END) AS night,
+                                                        SUM(CASE WHEN mid = 'true' THEN CAST(c_com AS int) ELSE 0 END)
+                                                        + SUM(CASE WHEN night = 'true' THEN CAST(c_com AS int) ELSE 0 END) AS c_com,
+                                                        SUM(CASE WHEN mid = 'true' THEN CAST(c_self AS int) ELSE 0 END)
+                                                        + SUM(CASE WHEN night = 'true' THEN CAST(c_self AS int) ELSE 0 END) AS c_self,
+                                                        SUM(CASE WHEN mid = 'true' THEN CAST(self AS int) ELSE 0 END)
+                                                        + SUM(CASE WHEN night = 'true' THEN CAST(self AS int) ELSE 0 END) AS self,
+                                                        SUM(CASE WHEN mid = 'true' THEN CAST(s_com AS int) ELSE 0 END)
+                                                        + SUM(CASE WHEN night = 'true' THEN CAST(s_com AS int) ELSE 0 END) AS s_com
+                            FROM               tblOrderBD
+                            WHERE           (date <= CONVERT(datetime, $P{e_date})) AND (date >= CONVERT(datetime, $P{s_date}))
+                            GROUP BY    workerID, resak002, type) AS derivedtbl_1]]>
+	</queryString>
+	<field name="workerID" class="java.lang.String"/>
+	<field name="resak002" class="java.lang.String"/>
+	<field name="type" class="java.lang.String"/>
+	<field name="mid" class="java.lang.Integer"/>
+	<field name="night" class="java.lang.Integer"/>
+	<field name="c_com" class="java.lang.Integer"/>
+	<field name="c_self" class="java.lang.Integer"/>
+	<field name="self" class="java.lang.Integer"/>
+	<field name="s_com" class="java.lang.Integer"/>
+	<field name="totle" class="java.lang.Integer"/>
+	<background>
+		<band splitType="Stretch"/>
+	</background>
+	<title>
+		<band height="50" splitType="Stretch">
+			<staticText>
+				<reportElement x="205" y="30" width="167" height="20" uuid="18f6c15d-2386-4398-9ca4-4eb02690ecdf"/>
+				<textElement>
+					<font fontName="msjh" size="12" pdfEncoding="Identity-H" isPdfEmbedded="true"/>
+				</textElement>
+				<text><![CDATA[員工訂購餐盒數量金額統計表]]></text>
+			</staticText>
+			<image>
+				<reportElement x="191" y="0" width="200" height="50" uuid="1697cc9a-55de-4e27-b85e-62c4dcbb1e10"/>
+				<imageExpression><![CDATA[$P{pic_path}]]></imageExpression>
+			</image>
+		</band>
+	</title>
+	<pageHeader>
+		<band height="40" splitType="Stretch">
+			<line>
+				<reportElement x="0" y="33" width="555" height="1" uuid="8bceba9f-977d-4138-aab9-b1c868df08e1"/>
+			</line>
+			<staticText>
+				<reportElement x="16" y="14" width="52" height="20" uuid="c6f89857-0d65-4615-8377-762999cb0cd2"/>
+				<textElement>
+					<font fontName="msjh" pdfEncoding="Identity-H" isPdfEmbedded="true"/>
+				</textElement>
+				<text><![CDATA[列印範圍：]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="127" y="14" width="10" height="20" uuid="4d137e6a-0f1a-41e2-a1a1-8b6240992f82"/>
+				<text><![CDATA[~]]></text>
+			</staticText>
+			<textField>
+				<reportElement x="68" y="14" width="59" height="20" uuid="b1db1de0-0504-4636-8303-477036f0fb46"/>
+				<textElement>
+					<font fontName="msjh" pdfEncoding="Identity-H" isPdfEmbedded="true"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$P{s_date}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="137" y="14" width="58" height="19" uuid="7e034fab-20d2-454b-8da0-e84fdd2e3838"/>
+				<textElement>
+					<font fontName="msjh" pdfEncoding="Identity-H" isPdfEmbedded="true"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$P{e_date}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="464" y="14" width="73" height="20" uuid="d2f11dbe-e56a-4ac2-8ffc-652b090cac86"/>
+				<textElement>
+					<font fontName="msjh" pdfEncoding="Identity-H" isPdfEmbedded="true"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$P{time}]]></textFieldExpression>
+			</textField>
+			<staticText>
+				<reportElement x="412" y="14" width="52" height="20" uuid="dfc0fa89-c3f5-43d6-9044-0041c41fe43b"/>
+				<textElement>
+					<font fontName="msjh" pdfEncoding="Identity-H" isPdfEmbedded="true"/>
+				</textElement>
+				<text><![CDATA[建立日期：]]></text>
+			</staticText>
+		</band>
+	</pageHeader>
+	<columnHeader>
+		<band height="29" splitType="Stretch">
+			<staticText>
+				<reportElement x="0" y="9" width="68" height="20" uuid="2cc479ae-12ed-4ded-bf7a-005f9861652d"/>
+				<textElement>
+					<font fontName="msjh" pdfEncoding="Identity-H" isPdfEmbedded="true"/>
+				</textElement>
+				<text><![CDATA[類別]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="68" y="9" width="69" height="20" uuid="1cdabe55-21d9-4489-9c73-7bf254bcd108"/>
+				<textElement>
+					<font fontName="msjh" pdfEncoding="Identity-H" isPdfEmbedded="true"/>
+				</textElement>
+				<text><![CDATA[員工編號]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="191" y="9" width="30" height="20" uuid="87159e10-d18a-4887-859b-c7ea4f337a6d"/>
+				<textElement textAlignment="Right">
+					<font fontName="msjh" pdfEncoding="Identity-H" isPdfEmbedded="true"/>
+				</textElement>
+				<text><![CDATA[中餐]]></text>
+			</staticText>
+			<line>
+				<reportElement x="0" y="28" width="555" height="1" uuid="0719523e-d97a-40cc-a071-b836e0594d6e"/>
+			</line>
+			<staticText>
+				<reportElement x="221" y="9" width="30" height="20" uuid="e634d6ee-4913-4b9e-a4ee-52eb0d7a8c11"/>
+				<textElement textAlignment="Right">
+					<font fontName="msjh" pdfEncoding="Identity-H" isPdfEmbedded="true"/>
+				</textElement>
+				<text><![CDATA[晚餐]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="251" y="9" width="60" height="20" uuid="9d3bfd87-7e61-4f27-89c8-3898834ba595"/>
+				<textElement textAlignment="Right">
+					<font fontName="msjh" pdfEncoding="Identity-H" isPdfEmbedded="true"/>
+				</textElement>
+				<text><![CDATA[公司代付]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="314" y="9" width="60" height="20" uuid="faa1f294-9d57-49cd-aab4-70b6af0831eb"/>
+				<textElement textAlignment="Right">
+					<font fontName="msjh" pdfEncoding="Identity-H" isPdfEmbedded="true"/>
+				</textElement>
+				<text><![CDATA[福委會補貼]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="501" y="8" width="45" height="20" uuid="40a14eb9-47e0-4f93-837f-47e37ad78c40"/>
+				<textElement textAlignment="Right">
+					<font fontName="msjh" pdfEncoding="Identity-H" isPdfEmbedded="true"/>
+				</textElement>
+				<text><![CDATA[合計金額]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="137" y="9" width="54" height="20" uuid="51fe554d-18ea-45bc-8be4-361e14f3191b"/>
+				<textElement>
+					<font fontName="msjh" pdfEncoding="Identity-H" isPdfEmbedded="true"/>
+				</textElement>
+				<text><![CDATA[員工姓名]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="437" y="9" width="60" height="20" uuid="81b8aee0-d51b-4359-bf3f-feb53bb9b206"/>
+				<textElement textAlignment="Right">
+					<font fontName="msjh" pdfEncoding="Identity-H" isPdfEmbedded="true"/>
+				</textElement>
+				<text><![CDATA[公司補貼]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="376" y="9" width="60" height="20" uuid="c0514714-fb61-491e-b7ca-6ad45cfca3bb"/>
+				<textElement textAlignment="Right">
+					<font fontName="msjh" pdfEncoding="Identity-H" isPdfEmbedded="true"/>
+				</textElement>
+				<text><![CDATA[個人支付]]></text>
+			</staticText>
+		</band>
+	</columnHeader>
+	<detail>
+		<band height="30" splitType="Stretch">
+			<textField>
+				<reportElement x="0" y="7" width="68" height="20" uuid="0b94ae98-5528-49eb-be55-35bdad43bdb8"/>
+				<textElement>
+					<font fontName="msjh" pdfEncoding="Identity-H" isPdfEmbedded="true"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{type}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="68" y="7" width="69" height="20" uuid="e882cad6-5ebf-4c8e-ae00-a181113702d6"/>
+				<textElement>
+					<font fontName="msjh" pdfEncoding="Identity-H" isPdfEmbedded="true"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{workerID}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="191" y="6" width="30" height="20" uuid="d4a8f76a-a8f2-4a0b-8496-2ca61092bf88"/>
+				<textElement textAlignment="Right">
+					<font fontName="msjh" pdfEncoding="Identity-H" isPdfEmbedded="true"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{mid}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="221" y="6" width="30" height="20" uuid="620251c7-ee77-4aba-b35e-fb3ba4c0ae5f"/>
+				<textElement textAlignment="Right">
+					<font fontName="msjh" pdfEncoding="Identity-H" isPdfEmbedded="true"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{night}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="251" y="7" width="60" height="20" uuid="759d6207-a6bb-43f4-aee6-3592e9af543c"/>
+				<textElement textAlignment="Right">
+					<font fontName="msjh" pdfEncoding="Identity-H" isPdfEmbedded="true"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{c_self}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="314" y="7" width="60" height="20" uuid="26dacbcb-360d-4093-90b8-a7a2a99b0b16"/>
+				<textElement textAlignment="Right">
+					<font fontName="msjh" pdfEncoding="Identity-H" isPdfEmbedded="true"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{c_com}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="501" y="7" width="45" height="20" uuid="08fd481c-92b5-4bee-a9d0-5487ec702be2"/>
+				<textElement textAlignment="Right">
+					<font fontName="msjh" pdfEncoding="Identity-H" isPdfEmbedded="true"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{totle}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="137" y="7" width="54" height="20" uuid="786bf9c0-a3b2-48be-86f9-45bf579aa85e"/>
+				<textElement>
+					<font fontName="msjh" pdfEncoding="Identity-H" isPdfEmbedded="true"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{resak002}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="376" y="7" width="60" height="20" uuid="824917a9-eacf-4080-bfa0-4262aedd9f11"/>
+				<textElement textAlignment="Right">
+					<font fontName="msjh" pdfEncoding="Identity-H" isPdfEmbedded="true"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{self}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="437" y="7" width="60" height="20" uuid="d4e85494-4e23-403b-817e-eae31c3f2b57"/>
+				<textElement textAlignment="Right">
+					<font fontName="msjh" pdfEncoding="Identity-H" isPdfEmbedded="true"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{s_com}]]></textFieldExpression>
+			</textField>
+		</band>
+	</detail>
+	<columnFooter>
+		<band height="12" splitType="Stretch">
+			<line>
+				<reportElement x="0" y="4" width="555" height="1" uuid="44a5b8db-c334-4704-aac4-2bba0348a579"/>
+			</line>
+		</band>
+	</columnFooter>
+	<pageFooter>
+		<band height="30" splitType="Stretch">
+			<textField>
+				<reportElement x="259" y="0" width="19" height="20" uuid="3cb3018f-3137-4c45-9bc8-af019660da7b"/>
+				<textElement textAlignment="Center">
+					<font fontName="msjh" pdfEncoding="Identity-H" isPdfEmbedded="true"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$V{PAGE_NUMBER}]]></textFieldExpression>
+			</textField>
+			<staticText>
+				<reportElement x="245" y="0" width="14" height="20" uuid="a0045879-6159-4781-9a74-ae52e9e7dafc"/>
+				<textElement>
+					<font fontName="msjh" pdfEncoding="Identity-H" isPdfEmbedded="true"/>
+				</textElement>
+				<text><![CDATA[第]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="278" y="0" width="14" height="20" uuid="d9504d89-fb95-4a60-a860-8efffd05e96a"/>
+				<textElement>
+					<font fontName="msjh" pdfEncoding="Identity-H" isPdfEmbedded="true"/>
+				</textElement>
+				<text><![CDATA[頁]]></text>
+			</staticText>
+		</band>
+	</pageFooter>
+	<summary>
+		<band splitType="Stretch"/>
+	</summary>
+</jasperReport>

@@ -174,8 +174,19 @@
 			})
 			function setToday() {
 				var mid="${mid}";
+				var mark_d="${mark_d}";
 				if(mid=="false"){
-					$(".calendar-day-${sdate}").find("#mid").attr("disabled",true); ;
+					$(".calendar-day-${sdate}").find("#mid").attr("disabled",true);
+				}
+				if(mark_d.length>0){
+					var k=mark_d.split(',');
+					for(var o in k){
+						$(".calendar-day-"+k[o]).addClass("past");
+						$(".calendar-day-"+k[o]).addClass("inactive");
+						
+						$(".calendar-day-"+k[o]).find(".mid-contents").remove();
+						$(".calendar-day-"+k[o]).find(".night-contents").remove();
+					}
 				}
 			}
 			function sendData() {

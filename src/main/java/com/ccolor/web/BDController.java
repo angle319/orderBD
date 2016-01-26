@@ -51,6 +51,7 @@ public class BDController {
 	public String home(@PathVariable("uid") String uid,@PathVariable("name") String name,Locale locale, Model model) {
 		uid=bd.selectResak(uid, name);
 		boolean mid=true;
+		String mark_date="";//
 		if(!"".equals(uid)){
 			Calendar c = Calendar.getInstance();  
 			if(c.getTime().getHours()>9){
@@ -59,6 +60,23 @@ public class BDController {
 			if(c.getTime().getHours()>15){
 				c.add(Calendar.DAY_OF_MONTH, 1);
 				mid=true;
+			}
+			if(Calendar.getInstance().get(Calendar.DAY_OF_WEEK)==Calendar.FRIDAY&&c.getTime().getHours()>15){
+				Calendar temp_c=Calendar.getInstance();
+				temp_c.add(Calendar.DAY_OF_MONTH, 1);
+				mark_date=sdFormat.format(temp_c.getTime());
+				temp_c.add(Calendar.DAY_OF_MONTH, 1);
+				mark_date=mark_date+","+sdFormat.format(temp_c.getTime());
+			}
+			if(Calendar.getInstance().get(Calendar.DAY_OF_WEEK)==Calendar.SATURDAY){
+				Calendar temp_c=Calendar.getInstance();
+				mark_date=sdFormat.format(temp_c.getTime());
+				temp_c.add(Calendar.DAY_OF_MONTH, 1);
+				mark_date=mark_date+","+sdFormat.format(temp_c.getTime());
+			}
+			if(Calendar.getInstance().get(Calendar.DAY_OF_WEEK)==Calendar.SUNDAY){
+				Calendar temp_c=Calendar.getInstance();
+				mark_date=sdFormat.format(temp_c.getTime());
 			}
 			String s_time=sdFormat.format(c.getTime());
 			c.add(Calendar.MONTH, 1);
@@ -75,6 +93,7 @@ public class BDController {
 				model.addAttribute("edate", e_time);
 				model.addAttribute("defData", json);
 				model.addAttribute("mid", mid);
+				model.addAttribute("mark_d", mark_date);
 				model.addAttribute("uid", uid);
 				model.addAttribute("name", name);
 			}

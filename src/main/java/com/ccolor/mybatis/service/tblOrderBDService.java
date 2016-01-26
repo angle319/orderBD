@@ -67,7 +67,18 @@ public class tblOrderBDService {
 		}
 		return list;
 	}
-
+	@Transactional
+	public void updateTodayPrice(){
+		SimpleDateFormat sdf = new SimpleDateFormat("yyyy-MM-dd");
+		try {
+			Date today=sdf.parse(sdf.format(new Date())+" 00:00:00");
+			tblOrderBDMapper.updateTodayPrice(today);
+			System.out.println("runs task");
+		} catch (ParseException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+	}
 	@Transactional
 	public void saveData(String uid, String name, List<OrderBD> list, Date s_time, Date e_time) {
 		SimpleDateFormat sdf = new SimpleDateFormat("yyyy-MM-dd");
@@ -93,5 +104,13 @@ public class tblOrderBDService {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}
+	}
+	public List<tblOrderBD> selectReport(Date s_date,Date e_date ){
+		Map map = new HashMap();
+		map.put("s_date", s_date);
+		map.put("e_date", e_date);
+		List<tblOrderBD> k = tblOrderBDMapper.selectReport(map);
+		return k;
+
 	}
 }

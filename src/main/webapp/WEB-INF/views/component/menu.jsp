@@ -18,8 +18,8 @@
 					
 					<li><a href="setType">設定扣款額類別</a></li>
 					<li><a href="Order">協助訂購便當</a></li>
-					<li><a href="searchLog">查詢訂購清單</a></li>
-					<li><a href="#">統計分析報表</a></li>
+					<li><a href="searchToday">查詢訂購清單</a></li>
+					<li><a href="Report">統計分析報表</a></li>
 				</ul>
 			</div>
 			<div id="content_" class="col-md-10"></div>
