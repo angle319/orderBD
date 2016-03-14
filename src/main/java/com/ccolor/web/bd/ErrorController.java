@@ -1,4 +1,4 @@
-package com.ccolor.web;
+package com.ccolor.web.bd;
 
 import java.sql.SQLException;
 import java.text.ParseException;

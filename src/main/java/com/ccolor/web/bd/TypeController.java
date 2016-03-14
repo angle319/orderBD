@@ -1,6 +1,5 @@
-package com.ccolor.web;
+package com.ccolor.web.bd;
 
-import java.text.SimpleDateFormat;
 import java.util.List;
 import java.util.Locale;
 
@@ -13,7 +12,6 @@ import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.context.request.WebRequest;
 
 import com.ccolor.mybatis.bean.tblOrderBD_price;
-import com.ccolor.mybatis.bean.tblOrderBD_resak;
 import com.ccolor.mybatis.service.tblOrderBD_priceService;
 
 @Controller
@@ -25,7 +23,7 @@ public class TypeController {
 	public String setType(WebRequest webRequest, Locale locale, Model model) {
 		List price = type.selectData();
 		model.addAttribute("price", price);
-		return "s_type";
+		return "orderBD/s_type";
 	}
 
 	@RequestMapping(value = "/checkType", method = RequestMethod.POST)

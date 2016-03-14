@@ -2,7 +2,7 @@
 <!doctype html>
 <html>
 	<head>
-		<title>CLNDR Demo</title>
+		<title>${uid} ${name}</title>
 		<meta charset="UTF-8">
 		<link rel="stylesheet" href="${pageContext.request.contextPath}/resources/css/clndr.css">
 		<link rel="stylesheet" href="${pageContext.request.contextPath}/resources/css/btn.css">
@@ -10,28 +10,37 @@
 	</head>
 	<script src="${pageContext.request.contextPath}/resources/js/jquery-1.11.3.min.js"></script>
 	<script src="${pageContext.request.contextPath}/resources/js/bootstrap.js"></script>
+	
 	<!--[if lt IE 9]>
       <script src="${pageContext.request.contextPath}/resources/js/html5shiv.min.js"></script>
       <script src="${pageContext.request.contextPath}/resources/js/respond.min.js"></script>
-      <script src="${pageContext.request.contextPath}/resources/js/carousel.js"></script>
       <link rel="stylesheet" href="${pageContext.request.contextPath}/resources/css/ie_custom.css"> 
      
+     <script src="http://ie7-js.googlecode.com/svn/version/2.0(beta)/IE8.js" type=”text/javascript”></script>
     <![endif]-->
+    
+    <!--[if lt IE 8]>
+    <link rel="stylesheet" href="${pageContext.request.contextPath}/resources/css/custom.css">
+    <![endif]-->
+    <script src="${pageContext.request.contextPath}/resources/js/underscore.js"></script>
+		<script src="${pageContext.request.contextPath}/resources/js/moment.js"></script>
+		<script src="${pageContext.request.contextPath}/resources/js/clndr1.2.js"></script>
+		<script src="${pageContext.request.contextPath}/resources/js/map.js"></script>
 	<body>
-	
+	${uid} ${name}
 		<div class="container">
 			<div id="calendar" class="_calendar">
 				<script type="text/template" id="template-calendar" charset="UTF-8">
 					<div class='clndr-controls'>
 					<div class='clndr-control-button'>
-					<span class='clndr-previous-button'>previous</span>
+					<span class='clndr-previous-button' >previous</span>
 					</div>
 					<div class='month'><\%= this.month.format("MM")  %>月 <\%= year %></div>
 					<div class='clndr-control-button rightalign'>
 					<span class='clndr-next-button'>next</span>
 					</div>
 					</div>
-					<table class='clndr-table' border='0' cellspacing='0' cellpadding='0'>
+					<table class='clndr-table' border='1' cellspacing='0' cellpadding='0'>
 					<thead>
 					<tr class='header-days'>
 					<\% for(var i = 0; i < daysOfTheWeek.length; i++) { %>
@@ -99,10 +108,8 @@
 				</div>
 			</div>
 		</div>
-		<script src="https://cdnjs.cloudflare.com/ajax/libs/underscore.js/1.8.3/underscore-min.js"></script>
-		<script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.10.6/moment.min.js"></script>
-		<script src="${pageContext.request.contextPath}/resources/js/clndr.js"></script>
-		<script src="${pageContext.request.contextPath}/resources/js/map.js"></script>
+		   <!doctype html>
+		
 		<script>
 			var def_data = ${defData};
 			var sdate ='${sdate}';
@@ -112,8 +119,7 @@
 			$(document).ready(function() {
 				var thisMonth = moment().format('YYYY-MM');
 				calendars = $('#calendar').clndr({
-					events : {},
-
+					
 					daysOfTheWeek : ['日', '一', '二', '三', '四', '五', '六'],
 
 					clickEvents : {
@@ -193,8 +199,8 @@
 				var context="${pageContext.request.contextPath}";
 				var _data=JSON.stringify(temp_map.toJson());
 				$.post(context+"/orderBD/save",{json:_data
-					,s_time:"${s_time}"
-					,e_time:"${e_time}"
+					,s_time:moment().format('YYYY-MM-DD')
+					,e_time:"${edate}"
 					,uid:"${uid}"
 					,name:"${name}"}, function(data, status){
 					if(data=="true"){

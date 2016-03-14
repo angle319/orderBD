@@ -94,7 +94,7 @@
 			s_date : $('#s_date').val(),
 			e_date : $("#e_date").val()
 		}, function(data) {
-				$("#data_table").empty().html(data);
+			$("#data_table").empty().html(data);
 				
 		});
 	}

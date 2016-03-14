@@ -1,7 +1,5 @@
-package com.ccolor.web;
+package com.ccolor.web.bd;
 
-import java.io.IOException;
-import java.io.InputStream;
 import java.io.OutputStream;
 import java.sql.Connection;
 import java.text.ParseException;
@@ -14,7 +12,6 @@ import java.util.Map;
 
 import javax.annotation.Resource;
 import javax.servlet.ServletContext;
-import javax.servlet.ServletContextEvent;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
@@ -22,26 +19,21 @@ import org.apache.commons.io.IOUtils;
 import org.apache.ibatis.session.SqlSession;
 import org.apache.ibatis.session.SqlSessionFactory;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.context.ApplicationContext;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.context.request.WebRequest;
-import org.springframework.web.context.support.WebApplicationContextUtils;
-import org.springframework.web.servlet.ModelAndView;
 
 import com.ccolor.mybatis.bean.tblOrderBD;
 import com.ccolor.mybatis.service.tblOrderBDService;
 
-import net.sf.jasperreports.engine.JREmptyDataSource;
 import net.sf.jasperreports.engine.JasperExportManager;
 import net.sf.jasperreports.engine.JasperFillManager;
 import net.sf.jasperreports.engine.JasperPrint;
 import net.sf.jasperreports.engine.JasperReport;
 import net.sf.jasperreports.engine.util.JRLoader;
-import net.sf.jasperreports.engine.util.JRProperties;
 
 @Controller
 public class ReportController {
@@ -53,8 +45,9 @@ public class ReportController {
 	SimpleDateFormat sdFormat = new SimpleDateFormat("yyyy/MM/dd");
 
 	@RequestMapping(value = "/Report", method = RequestMethod.GET)
-	public String ViewReport(Locale locale, Model model) {
-		return "s_report";
+	public String ViewReport(HttpServletRequest request,Locale locale, Model model) {
+		
+		return "orderBD/s_report";
 	}
 
 	@RequestMapping(value = "/selectReport", method = RequestMethod.POST)
@@ -73,8 +66,10 @@ public class ReportController {
 		} catch (ParseException e) {
 			e.printStackTrace();
 			return "error";
+		}catch (NumberFormatException e) {
+			model.addAttribute("data", null);;
 		}
-		return "s_report_table";
+		return "orderBD/s_report_table";
 	}
 
 	private void setSUMModel(List<tblOrderBD> list, Model model) {

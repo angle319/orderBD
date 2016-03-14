@@ -1,7 +1,7 @@
 eclipse.preferences.version=1
-encoding//src/main/webapp/WEB-INF/views/OrderBD.jsp=UTF-8
-encoding//src/main/webapp/WEB-INF/views/s_order.jsp=UTF-8
-encoding//src/main/webapp/WEB-INF/views/s_report_table.jsp=UTF-8
+encoding//src/main/webapp/WEB-INF/views/orderBD/OrderBD.jsp=UTF-8
+encoding//src/main/webapp/WEB-INF/views/orderBD/s_order.jsp=UTF-8
+encoding//src/main/webapp/WEB-INF/views/orderBD/s_report_table.jsp=UTF-8
 encoding//src/main/webapp/WEB-INF/views/test.jsp=UTF-8
 encoding//src/main/webapp/resources/css/custom.css=UTF-8
 encoding/<project>=UTF-8

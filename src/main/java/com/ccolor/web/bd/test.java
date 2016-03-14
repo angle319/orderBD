@@ -1,8 +1,7 @@
-package com.ccolor.web;
+package com.ccolor.web.bd;
 
 import java.text.SimpleDateFormat;
 import java.util.Calendar;
-import java.util.Date;
 
 public class test {
 	public static void main(String[] args) {

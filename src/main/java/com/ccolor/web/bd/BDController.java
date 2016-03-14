@@ -1,21 +1,11 @@
-package com.ccolor.web;
+package com.ccolor.web.bd;
 
-import java.io.UnsupportedEncodingException;
-import java.text.DateFormat;
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
 import java.util.ArrayList;
 import java.util.Calendar;
-import java.util.Date;
-import java.util.List;
 import java.util.Locale;
 
-import org.apache.ibatis.session.SqlSession;
-import org.apache.ibatis.session.SqlSessionFactory;
-import org.apache.ibatis.session.SqlSessionManager;
-import org.junit.Test;
-import org.slf4j.Logger;
-import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -25,10 +15,7 @@ import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.context.request.WebRequest;
 
-import com.ccolor.mybatis.bean.Account;
 import com.ccolor.mybatis.bean.OrderBD;
-import com.ccolor.mybatis.mapper.AccountMapper;
-import com.ccolor.mybatis.service.AccountService;
 import com.ccolor.mybatis.service.tblOrderBDService;
 import com.google.gson.Gson;
 import com.google.gson.reflect.TypeToken;
@@ -97,7 +84,7 @@ public class BDController {
 				model.addAttribute("uid", uid);
 				model.addAttribute("name", name);
 			}
-			return "OrderBD";
+			return "orderBD/OrderBD";
 		}
 		return "error";
 	}

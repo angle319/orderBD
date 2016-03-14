@@ -1,4 +1,4 @@
-package com.ccolor.web;
+package com.ccolor.web.bd;
 
 import java.util.List;
 import java.util.Locale;
@@ -8,7 +8,6 @@ import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
-import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.context.request.WebRequest;
 
 import com.ccolor.mybatis.service.tblOrderBD_priceService;
@@ -26,6 +25,6 @@ public class OrderController {
 		List list_=user.selectData();
 		model.addAttribute("resak", list);
 		model.addAttribute("data", list_);
-		return "s_order";
+		return "orderBD/s_order";
 	}
 }

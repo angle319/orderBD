@@ -24,3 +24,17 @@ h6,
 .nav{
 	font-family: "微軟正黑體",'Roboto Condensed', sans-serif;
 }
+.clndr-control-button{
+	float:left;
+	padding-right: 50px;
+}
+.month{
+	float:left;
+}
+.rightalign{
+	padding-left:50px
+}
+.clndr-controls{
+display: inline-block;
+}
+}

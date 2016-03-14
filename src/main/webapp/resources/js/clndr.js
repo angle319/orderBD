@@ -32,7 +32,7 @@
     }
     else {
         // Browser globals
-        factory(jQuery, moment);
+    	factory(jQuery, moment);
     }
 }(function ($, moment) {
     // Namespace
@@ -128,7 +128,7 @@
             lastMonth: "last-month",
             nextMonth: "next-month",
             adjacentMonth: "adjacent-month"
-        },
+        }
     };
 
     /**
@@ -699,7 +699,7 @@
                 daysOfTheWeek: this.daysOfTheWeek,
                 eventsLastMonth: this.eventsLastMonth,
                 eventsNextMonth: this.eventsNextMonth,
-                eventsThisInterval: eventsThisInterval,
+                eventsThisInterval: eventsThisInterval
             };
         }
         else {

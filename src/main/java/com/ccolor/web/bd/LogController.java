@@ -1,4 +1,4 @@
-package com.ccolor.web;
+package com.ccolor.web.bd;
 
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
@@ -35,6 +35,6 @@ public class LogController {
 			e.printStackTrace();
 		}
 		model.addAttribute("data", list);
-		return "s_today";
+		return "orderBD/s_today";
 	}
 }

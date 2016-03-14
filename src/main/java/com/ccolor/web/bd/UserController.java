@@ -1,6 +1,5 @@
-package com.ccolor.web;
+package com.ccolor.web.bd;
 
-import java.lang.reflect.Method;
 import java.util.List;
 import java.util.Locale;
 
@@ -11,7 +10,6 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.context.request.WebRequest;
-
 
 import com.ccolor.mybatis.bean.tblOrderBD_resak;
 import com.ccolor.mybatis.service.tblOrderBD_priceService;
@@ -31,7 +29,7 @@ public class UserController {
 		model.addAttribute("resak", list);
 		model.addAttribute("data", list_);
 		model.addAttribute("price", price);
-		return "s_user";
+		return "orderBD/s_user";
 	}
 	@RequestMapping(value = "/setUser/add", method = RequestMethod.POST)
 	public @ResponseBody String addUser(WebRequest webRequest,Locale locale, Model model) {
